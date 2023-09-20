@@ -35,5 +35,25 @@ export const generate = internalAction(
       sketchId,
       result: output[1],
     });
+
+    //CLIP INTERREGATOR API AI MODEL
+    const generatedImage = output[1]; // Assuming this is the image path
+    const descriptionOutput = await replicate.run(
+      "pharmapsychotic/clip-interrogator:a4a8bafd6089e1716b06057c42b19378250d008b80fe87caa5cd36d40c1eda90",
+      {
+        input: {
+          image: generatedImage,
+          clip_model_name: "ViT-H-14/laion2b_s32b_b79k", // or "ViT-H-14/laion2b_s32b_b79k"
+          mode: "fast",
+        },
+      }
+    );
+
+    const imageDescription = descriptionOutput; // Extracting the description
+
+    // Now you can store, display, or utilize imageDescription as required
+
+    console.log(imageDescription);
+    return imageDescription;
   }
 );

@@ -14,7 +14,6 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
-import type * as describe from "../describe";
 import type * as generate from "../generate";
 import type * as sketches from "../sketches";
 
@@ -27,7 +26,6 @@ import type * as sketches from "../sketches";
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  describe: typeof describe;
   generate: typeof generate;
   sketches: typeof sketches;
 }>;
